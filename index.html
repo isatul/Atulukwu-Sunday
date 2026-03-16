@@ -5,103 +5,104 @@
     <title>Atulukwu Sunday | BI & Data Analytics Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
     <style>
         :root {
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.12);
-            --accent-color: #00d4ff;
-            --sidebar-width: 300px;
-            --success-glow: #22c55e;
+            --bg-dark: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.4);
+            --accent: #10b981; 
+            --accent-soft: rgba(16, 185, 129, 0.1);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --sidebar-width: 280px;
+            --border-color: rgba(255, 255, 255, 0.08);
         }
 
         body {
-            font-family: 'Heebo', sans-serif;
-            background: radial-gradient(circle at top right, #1e293b, #0f172a);
-            color: #f1f5f9;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.03) 0px, transparent 50%);
+            color: var(--text-main);
             margin: 0;
+            line-height: 1.6;
         }
 
-        /* Sidebar & Layout */
         .layout { display: flex; min-height: 100vh; }
+        
         .sidebar {
             width: var(--sidebar-width);
             background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(20px);
-            border-right: 1px solid var(--glass-border);
+            backdrop-filter: blur(15px);
+            border-right: 1px solid var(--border-color);
             position: fixed;
             height: 100vh;
             z-index: 1000;
             padding: 2.5rem 1.5rem;
             display: flex;
             flex-direction: column;
-            transition: 0.3s;
         }
 
-        .main-content { margin-left: var(--sidebar-width); padding: 3rem; width: 100%; }
+        .main-content { margin-left: var(--sidebar-width); padding: 3rem; width: 100%; max-width: 1200px; }
 
-        /* Profile Area */
         .profile-img {
-            width: 140px; height: 140px; border-radius: 20px;
-            border: 2px solid var(--accent-color);
-            object-fit: cover; margin: 0 auto 1.5rem; display: block;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+            width: 110px; height: 110px; border-radius: 18px;
+            border: 2px solid var(--accent);
+            object-fit: cover; margin: 0 auto 1.2rem; display: block;
         }
 
-        /* Impact Section (New) */
-        .impact-card {
-            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
-            border-radius: 15px; border: 1px solid var(--glass-border);
-            padding: 1.5rem; text-align: center;
-        }
-        .impact-card h2 { color: var(--accent-color); font-weight: 800; margin: 0; }
-        .impact-card p { font-size: 0.85rem; margin: 5px 0 0; color: #94a3b8; }
-
-        /* Glass Containers */
         .glass-section {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
             padding: 2.5rem;
             margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px -15px rgba(0,0,0,0.5);
         }
 
-        h3 { font-weight: 700; color: #fff; margin-bottom: 2rem; display: flex; align-items: center; }
-        h3::after { content: ''; height: 2px; flex-grow: 1; background: var(--glass-border); margin-left: 20px; }
+        h3 { font-weight: 700; color: #fff; margin-bottom: 1.8rem; display: flex; align-items: center; font-size: 1.3rem; letter-spacing: -0.5px; }
+        h3 i { color: var(--accent); margin-right: 12px; font-size: 1rem; }
 
-        /* Grids */
-        .grid-3 { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-        .skills-grid { display: grid; gap: 15px; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+        .stat-card { background: var(--accent-soft); border-radius: 14px; padding: 1.2rem; text-align: center; border: 1px solid rgba(16, 185, 129, 0.1); }
+        .stat-card h2 { color: var(--accent); font-weight: 800; margin: 0; font-size: 1.6rem; }
 
-        /* Projects */
+        .strat-card { padding: 1.5rem; border-left: 3px solid var(--accent); background: rgba(255,255,255,0.02); border-radius: 0 12px 12px 0; height: 100%; }
+        
+        .workflow-step { background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 15px; border: 1px solid var(--border-color); position: relative; height: 100%; }
+        .step-num { font-family: 'JetBrains Mono'; font-weight: 800; color: var(--accent); opacity: 0.2; font-size: 2rem; position: absolute; top: 10px; right: 15px; }
+
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; }
+        .tech-item { background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 1.2rem; border-radius: 12px; text-align: center; transition: 0.3s; }
+        .tech-item:hover { border-color: var(--accent); background: var(--accent-soft); }
+        .tech-item i { font-size: 1.5rem; color: var(--accent); margin-bottom: 8px; display: block; }
+
         .project-card {
-            background: rgba(15, 23, 42, 0.5); border-radius: 16px; 
-            overflow: hidden; border: 1px solid var(--glass-border);
-            transition: 0.3s; text-decoration: none !important; color: inherit;
+            background: rgba(15, 23, 42, 0.5); border-radius: 16px; border: 1px solid var(--border-color);
+            transition: 0.3s; text-decoration: none !important; color: inherit; display: flex; flex-direction: column; height: 100%;
         }
-        .project-card:hover { transform: translateY(-8px); border-color: var(--accent-color); }
-        .project-card img { width: 100%; height: 180px; object-fit: cover; }
-        .project-card-body { padding: 1.25rem; }
-        .tag { font-size: 0.7rem; background: var(--accent-color); color: #000; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-bottom: 10px; display: inline-block; }
+        .project-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .project-img { height: 140px; background: #1e293b; display: flex; align-items: center; justify-content: center; color: var(--accent); }
+        .tag-pill { font-size: 0.65rem; background: var(--accent); color: #000; padding: 2px 8px; border-radius: 4px; font-weight: 700; display: inline-block; margin-bottom: 10px; }
 
-        /* Mobile Adjustments */
+        .custom-carousel { border-radius: 16px; overflow: hidden; border: 1px solid var(--border-color); }
+        .carousel-img-container { height: 350px; background: #000; position: relative; }
+        .carousel-img-container img { height: 100%; width: 100%; object-fit: contain; background-color: #0f172a; }
+        .carousel-caption { 
+            background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); 
+            border-radius: 12px; padding: 15px; bottom: 20px; 
+            border-left: 4px solid var(--accent); text-align: left; left: 5%; right: 5%;
+        }
+
+        .cta-box { background: var(--accent-soft); padding: 2rem; border-radius: 20px; border: 1px solid var(--accent); text-align: center; }
+
         @media (max-width: 991px) {
-            .sidebar { transform: translateX(-100%); width: 280px; }
+            .sidebar { transform: translateX(-100%); transition: 0.3s; }
             .sidebar.active { transform: translateX(0); }
-            .main-content { margin-left: 0; padding: 1.5rem; margin-top: 60px; }
-            .mobile-header { display: flex; position: fixed; top: 0; width: 100%; height: 60px; background: #0f172a; z-index: 1001; align-items: center; padding: 0 20px; border-bottom: 1px solid var(--glass-border); }
+            .main-content { margin-left: 0; padding: 1.5rem; margin-top: 70px; }
+            .mobile-header { display: flex; position: fixed; top: 0; width: 100%; height: 60px; background: var(--bg-dark); z-index: 1001; align-items: center; padding: 0 20px; border-bottom: 1px solid var(--border-color); }
+            .carousel-img-container { height: 250px; }
         }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 15px;
-        }
-        .gallery-grid img { width: 100%; height: 150px; object-fit: cover; border-radius: 12px; transition: 0.3s; cursor: pointer; }
-        .gallery-grid img:hover { filter: brightness(1.2); transform: scale(1.02); }
     </style>
 </head>
 <body>
@@ -114,132 +115,209 @@
     <div class="layout">
         <aside class="sidebar" id="sidebar">
             <img src="img/pass.webp" class="profile-img" alt="Sunday">
-            <h4 class="text-center font-weight-bold mb-1">Atulukwu Sunday</h4>
-            <p class="text-center small text-info mb-4">Business Intelligence Analyst</p>
+            <h6 class="text-center font-weight-bold mb-1">Atulukwu Sunday</h6>
+            <p class="text-center small text-muted mb-4">BI & Data Analytics Expert</p>
 
-            <div class="d-flex justify-content-center mb-4">
-                <a href="https://github.com/isatul" class="text-white mx-2"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/atulukwu-sunday/" class="text-white mx-2"><i class="fab fa-linkedin"></i></a>
-                <a href="https://x.com/isatul0" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+            <div class="d-flex justify-content-center mb-5">
+                <a href="https://github.com/isatul" class="text-muted mx-2"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/atulukwu-sunday/" class="text-muted mx-2"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/enyoatulukwu" class="text-muted mx-2"><i class="fab fa-twitter"></i></a>
             </div>
 
             <div class="mt-auto">
-                <a href="mailto:enyoatulukwu@gmail.com" class="btn btn-info btn-block py-2 mb-2">Hire Me</a>
-                <a href="https://drive.google.com/file/d/1yf68RRtmr9K_yH_D_U3xff9rO7nYuT2B/view?usp=drive_link" target="_blank" class="btn btn-outline-light btn-block btn-sm">Resume.pdf</a>
+                <a href="mailto:enyoatulukwu@gmail.com" class="btn btn-success btn-block py-2 mb-2" style="background: var(--accent); border: none; color: #000; font-weight: 700;">Hire Me</a>
+                <a href="https://drive.google.com/file/d/1yf68RRtmr9K_yH_D_U3xff9rO7nYuT2B/view?usp=drive_link" target="_blank" class="btn btn-outline-secondary btn-block btn-sm opacity-75">View Resume</a>
             </div>
         </aside>
 
         <main class="main-content">
             
             <div class="row mb-5">
-                <div class="col-md-4 mb-3">
-                    <div class="impact-card">
-                        <h2>80+</h2>
-                        <p>Professionals Trained</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="impact-card">
-                        <h2>35%</h2>
-                        <p>Faster Reporting Turnaround</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="impact-card">
-                        <h2>10k+</h2>
-                        <p>Records Cleaned & Optimized</p>
-                    </div>
-                </div>
+                <div class="col-md-4 mb-3"><div class="stat-card"><h2>80+</h2><p class="small text-muted mb-0">Professionals Trained</p></div></div>
+                <div class="col-md-4 mb-3"><div class="stat-card"><h2>35%</h2><p class="small text-muted mb-0">Faster ETL</p></div></div>
+                <div class="col-md-4 mb-3"><div class="stat-card"><h2>10k+</h2><p class="small text-muted mb-0">Records Managed</p></div></div>
             </div>
 
             <section class="glass-section">
-                <h3>About My Expertise</h3>
-                <p>I transform raw data into a narrative that drives growth. With over a year of experience, I bridge the gap between technical complexity and executive strategy using Excel, SQL, and Power BI.</p>
-                <p class="mb-0">Beyond analysis, I am a <strong>BI Educator</strong>, having empowered scores of professionals to master data visualization tools.</p>
+                <h3><i class="fas fa-user-circle"></i> Executive Summary</h3>
+                <p class="lead" style="color: var(--accent); font-weight: 600;">Bridging raw data complexity and executive decision-making.</p>
+                <p class="text-muted">I am a results-oriented <strong>Business Intelligence Analyst</strong> with a proven track record of architecting scalable data solutions. My expertise lies in the <strong>Microsoft Stack (Power BI, SQL)</strong> and <strong>Python</strong>, which I use to automate high-stakes reporting and optimize organizational workflows. Beyond technical implementation, I am a dedicated data educator, having mentored over 80+ individuals in data democratization and literacy.</p>
             </section>
 
             <section class="glass-section">
-                <h3>Technical Arsenal</h3>
-                <div class="skills-grid">
-                    <div class="impact-card py-3"><strong>Python</strong><br><small>Analytics/Apps</small></div>
-                    <div class="impact-card py-3"><strong>SQL</strong><br><small>Query/ETL</small></div>
-                    <div class="impact-card py-3"><strong>Power BI</strong><br><small>DAX/Viz</small></div>
-                    <div class="impact-card py-3"><strong>Excel</strong><br><small>Advanced/VBA</small></div>
+                <h3><i class="fas fa-toolbox"></i> Technical Arsenal</h3>
+                <div class="tech-grid">
+                    <div class="tech-item"><i class="fab fa-python"></i><span>Python</span></div>
+                    <div class="tech-item"><i class="fas fa-database"></i><span>SQL</span></div>
+                    <div class="tech-item"><i class="fas fa-chart-bar"></i><span>Power BI</span></div>
+                    <div class="tech-item"><i class="fas fa-file-excel"></i><span>Excel VBA</span></div>
                 </div>
             </section>
 
             <section class="glass-section">
-                <h3>Featured Projects</h3>
-                <div class="grid-3">
-                    <a href="https://medium.com/@enyoatulukwu/national-rail-strategic-performance-revenue-insights-8183d8f19b0a" class="project-card">
-                        <img src="img/Rail.jpg" alt="Project">
-                        <div class="project-card-body">
-                            <span class="tag">Power BI</span>
-                            <h6>National Rail Performance</h6>
-                            <small class="text-muted">Strategic revenue insights and performance dashboard.</small>
+                <h3><i class="fas fa-network-wired"></i> Enterprise Data Architecture</h3>
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="strat-card">
+                            <h6 class="font-weight-bold">Scalable ETL Pipelines</h6>
+                            <p class="small text-muted mb-0">Architecting automated data flows using Python and SQL Server, focusing on data consistency and integrity during complex migrations.</p>
                         </div>
-                    </a>
-                    <a href="https://github.com/isatul/PharmaPX.git" class="project-card">
-                        <div style="height:180px; background:#1e293b; display:flex; align-items:center; justify-content:center;">
-                            <i class="fas fa-microchip fa-3x text-info"></i>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="strat-card">
+                            <h6 class="font-weight-bold">Performance Tuning</h6>
+                            <p class="small text-muted mb-0">Specialized in VertiPaq engine optimization and DAX query tuning to reduce dashboard load times significantly.</p>
                         </div>
-                        <div class="project-card-body">
-                            <span class="tag">Python & SQLite</span>
-                            <h6>PharmaPX Portable System</h6>
-                            <small class="text-muted">A custom POS system with built-in sales analytics and CSV export.</small>
-                        </div>
-                    </a>
-                    <a href="https://medium.com/@enyoatulukwu/deciphering-hr-attrition-in-healthcare-insights-from-a-medical-institution-da5119fe2cc3" class="project-card">
-                        <img src="img/hr.jpg" alt="Project">
-                        <div class="project-card-body">
-                            <span class="tag">HR Analytics</span>
-                            <h6>Healthcare Attrition</h6>
-                            <small class="text-muted">Predictive analysis of employee turnover in medicine.</small>
-                        </div>
-                    </a>
+                    </div>
                 </div>
             </section>
 
             <section class="glass-section">
-                <h3>Pictorial Evidences</h3>
-                <div class="gallery-grid">
-                    <img src="img/Students.jpg" alt="Training Session">
-                    <img src="img/Students2.jpg" alt="Training Session">
-                    <img src="img/Students3.jpg" alt="Webinar Presentation">
-                    <img src="img/Students4.jpg" alt="Technical Workshop">
-                    <img src="img/Webinar.jpg" alt="Online Training">
+                <h3><i class="fas fa-shield-alt"></i> Strategic Data Governance</h3>
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="strat-card">
+                            <h6 class="font-weight-bold">Single Source of Truth (SSOT)</h6>
+                            <p class="small text-muted mb-0">Developing centralized data models that eliminate reporting silos and ensure departmental alignment.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="strat-card">
+                            <h6 class="font-weight-bold">Insight Democratization</h6>
+                            <p class="small text-muted mb-0">Building self-service BI environments that empower non-technical stakeholders to perform deep-dive analysis.</p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section class="glass-section">
-                <h3>Validation</h3>
-                <div class="grid-3">
-                    <blockquote class="impact-card text-left">
-                        <p class="small">"Sunday’s dashboards are game-changers and helped our team make faster strategic decisions."</p>
-                        <footer class="blockquote-footer">Atabor George</footer>
-                    </blockquote>
-                    <blockquote class="impact-card text-left">
-                        <p class="small">"His ability to structure complex data into simple dashboards is unmatched."</p>
-                        <footer class="blockquote-footer">Taiwo Sadeeq</footer>
-                    </blockquote>
+                <h3><i class="fas fa-stream"></i> Professional Workflow</h3>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="workflow-step">
+                            <span class="step-num">01</span>
+                            <h6>ETL & Cleaning</h6>
+                            <p class="small text-muted">Extracting and cleaning raw data to ensure absolute accuracy for a "Single Source of Truth."</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="workflow-step">
+                            <span class="step-num">02</span>
+                            <h6>Data Modeling</h6>
+                            <p class="small text-muted">Architecting Star Schemas and optimized DAX measures for high-performance reporting.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="workflow-step">
+                            <span class="step-num">03</span>
+                            <h6>Visual Synthesis</h6>
+                            <p class="small text-muted">Converting complex technical metrics into high-impact, actionable executive dashboards.</p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section class="glass-section">
-                <h3>Let's Talk Data</h3>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdNG1mKssbVodZU_CiA_kIqXOy3eDrjO-8e26sTKgdlIWt00g/viewform?embedded=true" width="100%" height="500" frameborder="0">Loading…</iframe>
+                <h3><i class="fas fa-folder-open"></i> Featured Projects</h3>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <a href="https://github.com/isatul/Telecom-Churn-Analysis.git" class="project-card">
+                            <div class="project-img"><i class="fas fa-signal fa-2x"></i></div>
+                            <div class="p-3">
+                                <span class="tag-pill">SQL & Power BI</span>
+                                <h6 class="font-weight-bold">Telecom Churn</h6>
+                                <p class="small text-muted">Unified 7k+ records via SQL; enabled 90% accurate target marketing.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <a href="https://medium.com/@enyoatulukwu/national-rail-strategic-performance-revenue-insights-8183d8f19b0a" class="project-card">
+                            <div class="project-img"><i class="fas fa-train fa-2x"></i></div>
+                            <div class="p-3">
+                                <span class="tag-pill">BI Strategy</span>
+                                <h6 class="font-weight-bold">National Rail</h6>
+                                <p class="small text-muted">Architected DAX models to monitor revenue leakage and audit labor.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <a href="https://github.com/isatul/PharmaPX.git" class="project-card">
+                            <div class="project-img"><i class="fas fa-pills fa-2x"></i></div>
+                            <div class="p-3">
+                                <span class="tag-pill">Python</span>
+                                <h6 class="font-weight-bold">PharmaPX System</h6>
+                                <p class="small text-muted">Automated daily reconciliations, cutting processing time from 3hrs to 5mins.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </section>
+
+            <section class="glass-section">
+                <h3><i class="fas fa-comment-dots"></i> Validation</h3>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="strat-card">
+                            <p class="small italic text-muted">"Sunday’s dashboards are game-changers for strategic decision-making."</p>
+                            <footer class="blockquote-footer small">Atabor George</footer>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="strat-card">
+                            <p class="small italic text-muted">"His ability to structure complex data into insights is unmatched."</p>
+                            <footer class="blockquote-footer small">Taiwo Sadeeq</footer>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="glass-section">
+                <h3><i class="fas fa-award"></i> Proof of Impact</h3>
+                <div id="impactCarousel" class="carousel slide custom-carousel" data-ride="carousel" data-interval="4000">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="carousel-img-container"><img src="img/Students.jpg" class="d-block w-100" alt="1">
+                                <div class="carousel-caption"><h6>Hands-on Training</h6><p>Mentoring the next generation of Data Analysts.</p></div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-img-container"><img src="img/Webinar.jpg" class="d-block w-100" alt="2">
+                                <div class="carousel-caption"><h6>Global Webinars</h6><p>Discussing BI strategy with international audiences.</p></div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-img-container"><img src="img/Students2.jpg" class="d-block w-100" alt="3">
+                                <div class="carousel-caption"><h6>Workshops</h6><p>Applied data theory sessions.</p></div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-img-container"><img src="img/Students3.jpg" class="d-block w-100" alt="4">
+                                <div class="carousel-caption"><h6>Data Labs</h6><p>SQL & Power BI live troubleshooting.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="cta-box mb-5">
+                <h4 class="font-weight-bold">Let's build something insightful</h4>
+                <p class="text-muted">Available for BI architecture, training engagements, and data strategy consulting.</p>
+                <a href="mailto:enyoatulukwu@gmail.com" class="btn btn-success px-5 py-2" style="background: var(--accent); border: none; color: #000; font-weight: 700;">Get In Touch</a>
+            </div>
 
             <footer class="text-center pb-5 opacity-50">
-                <small>© 2026 Atulukwu Sunday | Built for Scale</small>
+                <small>© 2026 Atulukwu Sunday | Professional BI Portfolio</small>
             </footer>
         </main>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.getElementById('toggle').addEventListener('click', () => {
             document.getElementById('sidebar').classList.toggle('active');
         });
+        $('.carousel').carousel({ interval: 4000 });
     </script>
 </body>
 </html>
